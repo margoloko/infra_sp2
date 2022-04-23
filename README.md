@@ -26,7 +26,7 @@
 ### Для запуска приложения в контейнерах:
 - Установите Docker
 - Клонируйте репозиторий
-``` git clone git@github.com:margoloko/infra_sp2.git ```
+``` git clone https://github.com/margoloko/infra_sp2.git ```
 - Запустите docker-compose в директории infra_sp2/infra командой
 ``` docker-compose up -d --build ```
 - Выполните миграции

@@ -1,14 +1,11 @@
-# версия docker-compose
 version: '3.8'
 
 # имена и описания контейнеров, которые должны быть развёрнуты
 services:
   db:
-    image: postgres:13.0-alpine
-    # volume и связанная с ним директория в контейнере
+    image: postgres:13.0-alpine    
     volumes:
-      - /var/lib/postgresql/data/
-    # адрес файла, где хранятся переменные окружения
+      - /var/lib/postgresql/data/    
     env_file:
       - ./.env
 
@@ -18,11 +15,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     volumes:
-      # Контейнер web будет работать с данными, хранящиеся в томе static_value,
-      # через свою директорию /app/static/
       - static_value:/app/static/
-      # Данные, хранящиеся в томе media_value, будут доступны в контейнере web
-      # через директорию /app/media/
       - media_value:/app/media/
     depends_on:
       - db
